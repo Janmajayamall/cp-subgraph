@@ -47,7 +47,7 @@ import { updateStakePosition } from "../entities/stakePosition";
 import { updateTokenApproval } from "../entities/tokenApproval";
 import { updateTokenBalance } from "../entities/tokenBalance";
 import { updateTradeHistory } from "../entities/tradeHistory";
-import { updateTradePosition } from "../entities/tradePosition";
+import { updateTradePosition } from "../entities/sharesPosition";
 import { ONE_BD, ONE_BI, Staking, ZERO_BD, TradeAmount } from "../helpers";
 
 export function handleMarketCreated(event: MarketCreated): void {

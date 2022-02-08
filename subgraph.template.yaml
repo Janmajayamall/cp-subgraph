@@ -23,9 +23,9 @@ dataSources:
                 handler: handleLiquidityAdded
               - event: LiquidityRemoved(indexed bytes32,address)
                 handler: handleLiquidityRemoved
-              - event: SharesBought(indexed bytes32,address)
+              - event: SharesBought(indexed bytes32,address,uint256)
                 handler: handleSharesBought
-              - event: SharesSold(indexed bytes32,address)
+              - event: SharesSold(indexed bytes32,address,uint256)
                 handler: handleSharesSold
               - event: SharesMerged(indexed bytes32,address)
                 handler: handleSharesMerged

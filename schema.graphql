@@ -36,8 +36,8 @@ type Market @entity {
 
 	# TODO trade history
 
-	# trade positions
-	tradePositions: [TradePosition!]! @derivedFrom(field: "market")
+	# shares positions
+	sharesPositions: [SharesPosition!]! @derivedFrom(field: "market")
 
 	# extra info
 	users: [UserMarket!]! @derivedFrom(field: "market")
@@ -51,7 +51,7 @@ type User @entity {
 	id: ID!
 	liquidityPositions: [LiquidityPosition!]! @derivedFrom(field: "user")
 	tradeHistory: [TradeHistory!]! @derivedFrom(field: "user")
-	tradePositions: [TradePosition!]! @derivedFrom(field: "user")
+	sharesPositions: [SharesPosition!]! @derivedFrom(field: "user")
 	markets: [UserMarket!]! @derivedFrom(field: "user")
 }
 
@@ -76,7 +76,7 @@ type TradeHistory @entity {
 	tradeIndex: BigInt!
 }
 
-type TradePosition @entity {
+type SharesPosition @entity {
 	id: ID! # {user}-{market}
 	user: User!
 	market: Market!

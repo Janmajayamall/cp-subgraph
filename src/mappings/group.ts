@@ -9,6 +9,10 @@ import {
 	SharesSold,
 } from "../../generated/Group/Group";
 import {
+	increaseTradesCount,
+	increaseTradeVolume,
+	saveUser,
+	saveUserMarket,
 	updateMarketDetails,
 	updateMarketLiquiditySupply,
 	updateMarketOutcomeFractions,
@@ -16,6 +20,8 @@ import {
 } from "../entities";
 import { loadGroup, updateGroup } from "../entities/group";
 import { updateLiquidityPosition } from "../entities/liquidityPosition";
+import { updateSharesPosition } from "../entities/sharesPosition";
+import { ONE_BI } from "../helpers";
 
 export function handleLiquidityAdded(event: LiquidityAdded) {
 	var group = loadGroup(event.address);
@@ -23,6 +29,14 @@ export function handleLiquidityAdded(event: LiquidityAdded) {
 		// group hasn't been set before
 		updateGroup(event.address);
 	}
+
+	// save user interaction
+	saveUser(event.params.by);
+	saveUserMarket(
+		event.params.by,
+		event.params.marketIdentifier,
+		event.block.timestamp
+	);
 
 	// update the market
 	updateMarketDetails(
@@ -42,8 +56,65 @@ export function handleLiquidityAdded(event: LiquidityAdded) {
 	);
 }
 export function handleLiquidityRemoved(event: LiquidityRemoved) {}
-export function handleSharesBought(event: SharesBought) {}
-export function handleSharesSold(event: SharesSold) {}
+
+export function handleSharesBought(event: SharesBought) {
+	// save user interaction
+	saveUser(event.params.by);
+	saveUserMarket(
+		event.params.by,
+		event.params.marketIdentifier,
+		event.block.timestamp
+	);
+
+	// update user's shares position
+	updateSharesPosition(
+		event.params.by,
+		event.params.marketIdentifier,
+		event.address,
+		event.block.timestamp
+	);
+
+	// update market reserves
+	updateMarketReserves(event.params.marketIdentifier);
+
+	// update market trade volume
+	increaseTradeVolume(
+		event.params.marketIdentifier,
+		event.params.amount,
+		event.block.timestamp
+	);
+	increaseTradesCount(event.params.marketIdentifier, ONE_BI);
+}
+
+export function handleSharesSold(event: SharesSold) {
+	// save user interaction
+	saveUser(event.params.by);
+	saveUserMarket(
+		event.params.by,
+		event.params.marketIdentifier,
+		event.block.timestamp
+	);
+
+	// update user's shares position
+	updateSharesPosition(
+		event.params.by,
+		event.params.marketIdentifier,
+		event.address,
+		event.block.timestamp
+	);
+
+	// update market reserves
+	updateMarketReserves(event.params.marketIdentifier);
+
+	// update market trade volume
+	increaseTradeVolume(
+		event.params.marketIdentifier,
+		event.params.amount,
+		event.block.timestamp
+	);
+	increaseTradesCount(event.params.marketIdentifier, ONE_BI);
+}
+
 export function handleSharesMerged(event: SharesMerged) {}
 export function handleSharesRedeemed(event: SharesRedeemed) {}
 export function handleOutcomeSet(event: OutcomeSet) {}
