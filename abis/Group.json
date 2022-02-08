@@ -726,6 +726,11 @@
 				"name": "by",
 				"type": "address",
 				"indexed": false
+			},
+			{
+				"name": "amount",
+				"type": "uint256",
+				"indexed": false
 			}
 		],
 		"anonymous": false

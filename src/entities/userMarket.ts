@@ -18,7 +18,7 @@ export function loadUserMarket(
 	return userMarket;
 }
 
-export function saveUserMarket(
+export function updateUserMarket(
 	userAddress: Address,
 	marketIdentifier: Bytes,
 	timestamp: BigInt

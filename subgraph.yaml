@@ -29,7 +29,7 @@ dataSources:
                 handler: handleSharesSold
               - event: SharesMerged(indexed bytes32,address)
                 handler: handleSharesMerged
-              - event: SharesRedeemed(indexed bytes32,address)
+              - event: SharesRedeemed(indexed bytes32,address,uint256)
                 handler: handleSharesRedeemed
               - event: OutcomeSet(indexed bytes32)
                 handler: handleOutcomeSet

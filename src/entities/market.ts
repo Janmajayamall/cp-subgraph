@@ -1,15 +1,6 @@
 import { Address, Bytes, BigInt, BigDecimal } from "@graphprotocol/graph-ts";
 import { Market } from "../../generated/schema";
-import {
-	convertAddressBytesToAddress,
-	convertBigIntToDecimal,
-	FOUR_BI,
-	ONE_BI,
-	ZERO_BI,
-	TWO_BI,
-	ZERO_BD,
-	ONE_BD,
-} from "../helpers";
+import { convertBigIntToDecimal, ONE_BI, ZERO_BI, ONE_BD } from "../helpers";
 import { Group as GroupContract } from "../../generated/Group/Group";
 
 /**

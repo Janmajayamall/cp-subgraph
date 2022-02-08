@@ -1,5 +1,6 @@
-import { Address } from "@graphprotocol/graph-ts";
+import { Address, BigInt } from "@graphprotocol/graph-ts";
 import { User } from "../../generated/schema";
+import { convertBigIntToDecimal } from "../helpers";
 
 /**
  * Update functions
@@ -13,7 +14,18 @@ export function loadUser(userAddress: Address): User {
 	return user;
 }
 
-export function saveUser(userAddress: Address): void {
+export function updateUser(userAddress: Address): void {
 	const user = loadUser(userAddress);
+	user.save();
+}
+
+export function increaseUserTotalRedeemAmount(
+	userAddress: Address,
+	by: BigInt
+): void {
+	const user = loadUser(userAddress);
+	user.totalRedeemAmount = user.totalRedeemAmount.plus(
+		convertBigIntToDecimal(by)
+	);
 	user.save();
 }

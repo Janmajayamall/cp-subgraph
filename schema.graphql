@@ -50,9 +50,9 @@ type Market @entity {
 type User @entity {
 	id: ID!
 	liquidityPositions: [LiquidityPosition!]! @derivedFrom(field: "user")
-	tradeHistory: [TradeHistory!]! @derivedFrom(field: "user")
 	sharesPositions: [SharesPosition!]! @derivedFrom(field: "user")
 	markets: [UserMarket!]! @derivedFrom(field: "user")
+	totalRedeemAmount: BigDecimal!
 }
 
 type LiquidityPosition @entity {

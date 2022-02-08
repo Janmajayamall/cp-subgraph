@@ -1,10 +1,4 @@
-import {
-	BigInt,
-	BigDecimal,
-	Address,
-	Bytes,
-	log,
-} from "@graphprotocol/graph-ts";
+import { BigInt, BigDecimal, Address, Bytes } from "@graphprotocol/graph-ts";
 
 export const ADDRESS_ZERO = "0x0000000000000000000000000000000000000000";
 export let ZERO_BI = BigInt.fromI32(0);
@@ -21,10 +15,6 @@ export function convertBigIntToDecimal(
 	base: BigDecimal = BigDecimal.fromString("1e18")
 ): BigDecimal {
 	return value.divDecimal(base);
-}
-
-export function convertAddressBytesToAddress(address: Bytes): Address {
-	return changetype<Address>(address);
 }
 
 export class Staking {
