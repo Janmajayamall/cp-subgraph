@@ -1,0 +1,93 @@
+type Group @entity {
+	id: ID!
+
+	markets: [Market!]! @derivedFrom(field: "group")
+	manager: Bytes!
+	cToken: Bytes!
+	fee: BigDecimal!
+}
+
+type Market @entity {
+	id: ID!
+
+	# basic details
+	marketIdentifier: Bytes!
+
+	# market details
+	cToken: Bytes!
+	fee: BigDecimal!
+	manager: Bytes!
+	group: Group!
+
+	# outcome details
+	outcomeFractions: [BigDecimal!]!
+
+	# token ids
+	tokenId0: BigInt!
+	tokenId1: BigInt!
+
+	# reserves
+	reserve0: BigDecimal!
+	reserve1: BigDecimal!
+
+	# liquidity
+	liquiditySupply: BigDecimal!
+	liquidityPositions: [LiquidityPosition!]! @derivedFrom(field: "market")
+
+	# TODO trade history
+
+	# trade positions
+	tradePositions: [TradePosition!]! @derivedFrom(field: "market")
+
+	# extra info
+	users: [UserMarket!]! @derivedFrom(field: "market")
+	timestamp: BigInt!
+	tradeVolume: BigDecimal!
+	lastActionTimestamp: BigInt!
+	tradesCount: BigInt!
+}
+
+type User @entity {
+	id: ID!
+	liquidityPositions: [LiquidityPosition!]! @derivedFrom(field: "user")
+	tradeHistory: [TradeHistory!]! @derivedFrom(field: "user")
+	tradePositions: [TradePosition!]! @derivedFrom(field: "user")
+	markets: [UserMarket!]! @derivedFrom(field: "user")
+}
+
+type LiquidityPosition @entity {
+	id: ID! # {market}-{user}
+	user: User!
+	market: Market!
+	liquidityId: Bytes!
+	liquidityShares: BigDecimal!
+	liquiditySupply: BigDecimal!
+}
+
+type TradeHistory @entity {
+	id: ID! # {user}-{market}-{tradeIndex}
+	user: User!
+	market: Market!
+	amount0: BigDecimal!
+	amount1: BigDecimal!
+	amountC: BigDecimal!
+	buy: Boolean!
+	timestamp: BigInt!
+	tradeIndex: BigInt!
+}
+
+type TradePosition @entity {
+	id: ID! # {user}-{market}
+	user: User!
+	market: Market!
+	amount0: BigDecimal!
+	amount1: BigDecimal!
+	timestamp: BigInt!
+}
+
+type UserMarket @entity {
+	id: ID! # {user}-{market}
+	user: User!
+	market: Market!
+	timestamp: BigInt!
+}

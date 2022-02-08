@@ -1,0 +1,36 @@
+specVersion: 0.0.2
+schema:
+    file: ./schema.graphql
+dataSources:
+    - kind: ethereum/contract
+      name: Group
+      network: "arbitrum-rinkeby"
+      source:
+          address: "0xeD3bC90C812d471E2a6769AE89f4aE441AbB7dc2"
+          abi: Group
+          startBlock: 8277398
+      mapping:
+          kind: ethereum/events
+          apiVersion: 0.0.5
+          language: wasm/assemblyscript
+          entities:
+              - Group
+          abis:
+              - name: Group
+                file: ./abis/Group.json
+          eventHandlers:
+              - event: LiquidityAdded(indexed bytes32,address)
+                handler: handleLiquidityAdded
+              - event: LiquidityRemoved(indexed bytes32,address)
+                handler: handleLiquidityRemoved
+              - event: SharesBought(indexed bytes32,address)
+                handler: handleSharesBought
+              - event: SharesSold(indexed bytes32,address)
+                handler: handleSharesSold
+              - event: SharesMerged(indexed bytes32,address)
+                handler: handleSharesMerged
+              - event: SharesRedeemed(indexed bytes32,address)
+                handler: handleSharesRedeemed
+              - event: OutcomeSet(indexed bytes32)
+                handler: handleOutcomeSet
+          file: ./src/mappings/group.ts

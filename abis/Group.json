@@ -1,0 +1,881 @@
+[
+	{
+		"type": "constructor",
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_cToken",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "_manager",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_fee",
+				"type": "uint256"
+			}
+		]
+	},
+	{
+		"type": "function",
+		"name": "addLiquidity",
+		"inputs": [
+			{
+				"internalType": "bytes32",
+				"name": "marketIdentifier",
+				"type": "bytes32"
+			},
+			{
+				"internalType": "address",
+				"name": "to",
+				"type": "address"
+			}
+		],
+		"outputs": [],
+		"stateMutability": "nonpayable"
+	},
+	{
+		"type": "function",
+		"name": "balanceOf",
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "owner",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "id",
+				"type": "uint256"
+			}
+		],
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view"
+	},
+	{
+		"type": "function",
+		"name": "balanceOfBatch",
+		"inputs": [
+			{
+				"internalType": "address[]",
+				"name": "owners",
+				"type": "address[]"
+			},
+			{
+				"internalType": "uint256[]",
+				"name": "ids",
+				"type": "uint256[]"
+			}
+		],
+		"outputs": [
+			{
+				"internalType": "uint256[]",
+				"name": "",
+				"type": "uint256[]"
+			}
+		],
+		"stateMutability": "view"
+	},
+	{
+		"type": "function",
+		"name": "buy",
+		"inputs": [
+			{
+				"internalType": "bytes32",
+				"name": "marketIdentifier",
+				"type": "bytes32"
+			},
+			{
+				"internalType": "uint256",
+				"name": "amount0",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "amount1",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "to",
+				"type": "address"
+			}
+		],
+		"outputs": [],
+		"stateMutability": "nonpayable"
+	},
+	{
+		"type": "function",
+		"name": "cReserves",
+		"inputs": [],
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view"
+	},
+	{
+		"type": "function",
+		"name": "cToken",
+		"inputs": [],
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view"
+	},
+	{
+		"type": "function",
+		"name": "createAndFundMarket",
+		"inputs": [
+			{
+				"internalType": "bytes32",
+				"name": "marketIdentifier",
+				"type": "bytes32"
+			},
+			{
+				"internalType": "uint8",
+				"name": "mType",
+				"type": "uint8"
+			},
+			{
+				"internalType": "uint80",
+				"name": "expireBy",
+				"type": "uint80"
+			}
+		],
+		"outputs": [],
+		"stateMutability": "nonpayable"
+	},
+	{
+		"type": "function",
+		"name": "fee",
+		"inputs": [],
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view"
+	},
+	{
+		"type": "function",
+		"name": "getBalance",
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "token",
+				"type": "address"
+			}
+		],
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "balance",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view"
+	},
+	{
+		"type": "function",
+		"name": "getLiquidityId",
+		"inputs": [
+			{
+				"internalType": "bytes32",
+				"name": "_for",
+				"type": "bytes32"
+			},
+			{
+				"internalType": "address",
+				"name": "_of",
+				"type": "address"
+			}
+		],
+		"outputs": [
+			{
+				"internalType": "bytes32",
+				"name": "",
+				"type": "bytes32"
+			}
+		],
+		"stateMutability": "pure"
+	},
+	{
+		"type": "function",
+		"name": "getOutcomeTokenIds",
+		"inputs": [
+			{
+				"internalType": "bytes32",
+				"name": "marketIdentifier",
+				"type": "bytes32"
+			}
+		],
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "tokenId0",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "tokenId1",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "pure"
+	},
+	{
+		"type": "function",
+		"name": "isApprovedForAll",
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "owner",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "operator",
+				"type": "address"
+			}
+		],
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view"
+	},
+	{
+		"type": "function",
+		"name": "liquidity",
+		"inputs": [
+			{
+				"internalType": "bytes32",
+				"name": "",
+				"type": "bytes32"
+			}
+		],
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view"
+	},
+	{
+		"type": "function",
+		"name": "liquiditySupply",
+		"inputs": [
+			{
+				"internalType": "bytes32",
+				"name": "",
+				"type": "bytes32"
+			}
+		],
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view"
+	},
+	{
+		"type": "function",
+		"name": "manager",
+		"inputs": [],
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view"
+	},
+	{
+		"type": "function",
+		"name": "marketReserves",
+		"inputs": [
+			{
+				"internalType": "bytes32",
+				"name": "",
+				"type": "bytes32"
+			}
+		],
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "reserve0",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "reserve1",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view"
+	},
+	{
+		"type": "function",
+		"name": "markets",
+		"inputs": [
+			{
+				"internalType": "bytes32",
+				"name": "",
+				"type": "bytes32"
+			}
+		],
+		"outputs": [
+			{
+				"internalType": "uint80",
+				"name": "expireBy",
+				"type": "uint80"
+			}
+		],
+		"stateMutability": "view"
+	},
+	{
+		"type": "function",
+		"name": "merge",
+		"inputs": [
+			{
+				"internalType": "bytes32",
+				"name": "marketIdentifier",
+				"type": "bytes32"
+			},
+			{
+				"internalType": "address",
+				"name": "to",
+				"type": "address"
+			}
+		],
+		"outputs": [],
+		"stateMutability": "nonpayable"
+	},
+	{
+		"type": "function",
+		"name": "outcomeDenominators",
+		"inputs": [
+			{
+				"internalType": "bytes32",
+				"name": "",
+				"type": "bytes32"
+			}
+		],
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view"
+	},
+	{
+		"type": "function",
+		"name": "outcomeNumerators",
+		"inputs": [
+			{
+				"internalType": "bytes32",
+				"name": "",
+				"type": "bytes32"
+			},
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view"
+	},
+	{
+		"type": "function",
+		"name": "redeem",
+		"inputs": [
+			{
+				"internalType": "bytes32",
+				"name": "marketIdentifier",
+				"type": "bytes32"
+			},
+			{
+				"internalType": "address",
+				"name": "to",
+				"type": "address"
+			}
+		],
+		"outputs": [],
+		"stateMutability": "nonpayable"
+	},
+	{
+		"type": "function",
+		"name": "removeLiquidity",
+		"inputs": [
+			{
+				"internalType": "bytes32",
+				"name": "marketIdentifier",
+				"type": "bytes32"
+			},
+			{
+				"internalType": "address",
+				"name": "_for",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "byAmount",
+				"type": "uint256"
+			}
+		],
+		"outputs": [],
+		"stateMutability": "nonpayable"
+	},
+	{
+		"type": "function",
+		"name": "safeBatchTransferFrom",
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "from",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "to",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256[]",
+				"name": "ids",
+				"type": "uint256[]"
+			},
+			{
+				"internalType": "uint256[]",
+				"name": "values",
+				"type": "uint256[]"
+			},
+			{
+				"internalType": "bytes",
+				"name": "data",
+				"type": "bytes"
+			}
+		],
+		"outputs": [],
+		"stateMutability": "nonpayable"
+	},
+	{
+		"type": "function",
+		"name": "safeTransferFrom",
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "from",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "to",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "id",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "value",
+				"type": "uint256"
+			},
+			{
+				"internalType": "bytes",
+				"name": "data",
+				"type": "bytes"
+			}
+		],
+		"outputs": [],
+		"stateMutability": "nonpayable"
+	},
+	{
+		"type": "function",
+		"name": "sell",
+		"inputs": [
+			{
+				"internalType": "bytes32",
+				"name": "marketIdentifier",
+				"type": "bytes32"
+			},
+			{
+				"internalType": "uint256",
+				"name": "amount",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "to",
+				"type": "address"
+			}
+		],
+		"outputs": [],
+		"stateMutability": "nonpayable"
+	},
+	{
+		"type": "function",
+		"name": "setApprovalForAll",
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "operator",
+				"type": "address"
+			},
+			{
+				"internalType": "bool",
+				"name": "approved",
+				"type": "bool"
+			}
+		],
+		"outputs": [],
+		"stateMutability": "nonpayable"
+	},
+	{
+		"type": "function",
+		"name": "setOutcome",
+		"inputs": [
+			{
+				"internalType": "bytes32",
+				"name": "marketIdentifier",
+				"type": "bytes32"
+			},
+			{
+				"internalType": "uint256[2]",
+				"name": "_outcomeNumerators",
+				"type": "uint256[2]"
+			}
+		],
+		"outputs": [],
+		"stateMutability": "nonpayable"
+	},
+	{
+		"type": "function",
+		"name": "supportsInterface",
+		"inputs": [
+			{
+				"internalType": "bytes4",
+				"name": "_interfaceId",
+				"type": "bytes4"
+			}
+		],
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "pure"
+	},
+	{
+		"type": "event",
+		"name": "ApprovalForAll",
+		"inputs": [
+			{
+				"name": "_owner",
+				"type": "address",
+				"indexed": true
+			},
+			{
+				"name": "_operator",
+				"type": "address",
+				"indexed": true
+			},
+			{
+				"name": "_approved",
+				"type": "bool",
+				"indexed": false
+			}
+		],
+		"anonymous": false
+	},
+	{
+		"type": "event",
+		"name": "LiquidityAdded",
+		"inputs": [
+			{
+				"name": "marketIdentifier",
+				"type": "bytes32",
+				"indexed": true
+			},
+			{
+				"name": "by",
+				"type": "address",
+				"indexed": false
+			}
+		],
+		"anonymous": false
+	},
+	{
+		"type": "event",
+		"name": "LiquidityRemoved",
+		"inputs": [
+			{
+				"name": "marketIdentifier",
+				"type": "bytes32",
+				"indexed": true
+			},
+			{
+				"name": "by",
+				"type": "address",
+				"indexed": false
+			}
+		],
+		"anonymous": false
+	},
+	{
+		"type": "event",
+		"name": "OutcomeSet",
+		"inputs": [
+			{
+				"name": "marketIdentifier",
+				"type": "bytes32",
+				"indexed": true
+			}
+		],
+		"anonymous": false
+	},
+	{
+		"type": "event",
+		"name": "SharesBought",
+		"inputs": [
+			{
+				"name": "marketIdentifier",
+				"type": "bytes32",
+				"indexed": true
+			},
+			{
+				"name": "by",
+				"type": "address",
+				"indexed": false
+			}
+		],
+		"anonymous": false
+	},
+	{
+		"type": "event",
+		"name": "SharesMerged",
+		"inputs": [
+			{
+				"name": "marketIdentifier",
+				"type": "bytes32",
+				"indexed": true
+			},
+			{
+				"name": "by",
+				"type": "address",
+				"indexed": false
+			}
+		],
+		"anonymous": false
+	},
+	{
+		"type": "event",
+		"name": "SharesRedeemed",
+		"inputs": [
+			{
+				"name": "marketIdentifier",
+				"type": "bytes32",
+				"indexed": true
+			},
+			{
+				"name": "by",
+				"type": "address",
+				"indexed": false
+			}
+		],
+		"anonymous": false
+	},
+	{
+		"type": "event",
+		"name": "SharesSold",
+		"inputs": [
+			{
+				"name": "marketIdentifier",
+				"type": "bytes32",
+				"indexed": true
+			},
+			{
+				"name": "by",
+				"type": "address",
+				"indexed": false
+			}
+		],
+		"anonymous": false
+	},
+	{
+		"type": "event",
+		"name": "TransferBatch",
+		"inputs": [
+			{
+				"name": "_operator",
+				"type": "address",
+				"indexed": true
+			},
+			{
+				"name": "_from",
+				"type": "address",
+				"indexed": true
+			},
+			{
+				"name": "_to",
+				"type": "address",
+				"indexed": true
+			},
+			{
+				"name": "_ids",
+				"type": "uint256[]",
+				"indexed": false
+			},
+			{
+				"name": "_values",
+				"type": "uint256[]",
+				"indexed": false
+			}
+		],
+		"anonymous": false
+	},
+	{
+		"type": "event",
+		"name": "TransferSingle",
+		"inputs": [
+			{
+				"name": "_operator",
+				"type": "address",
+				"indexed": true
+			},
+			{
+				"name": "_from",
+				"type": "address",
+				"indexed": true
+			},
+			{
+				"name": "_to",
+				"type": "address",
+				"indexed": true
+			},
+			{
+				"name": "_id",
+				"type": "uint256",
+				"indexed": false
+			},
+			{
+				"name": "_value",
+				"type": "uint256",
+				"indexed": false
+			}
+		],
+		"anonymous": false
+	},
+	{
+		"type": "event",
+		"name": "URI",
+		"inputs": [
+			{
+				"name": "_value",
+				"type": "string",
+				"indexed": false
+			},
+			{
+				"name": "_id",
+				"type": "uint256",
+				"indexed": true
+			}
+		],
+		"anonymous": false
+	},
+	{
+		"type": "error",
+		"name": "BalanceError",
+		"inputs": []
+	},
+	{
+		"type": "error",
+		"name": "BuyFPMMInvarianceViolated",
+		"inputs": []
+	},
+	{
+		"type": "error",
+		"name": "InsufficientLiquidityOwnership",
+		"inputs": []
+	},
+	{
+		"type": "error",
+		"name": "InvalidMergeAmount",
+		"inputs": []
+	},
+	{
+		"type": "error",
+		"name": "MarketInActive",
+		"inputs": []
+	},
+	{
+		"type": "error",
+		"name": "OutcomeAlreadySet",
+		"inputs": []
+	},
+	{
+		"type": "error",
+		"name": "OutcomeNotSet",
+		"inputs": []
+	},
+	{
+		"type": "error",
+		"name": "SellFPMMInvarianceViolated",
+		"inputs": []
+	},
+	{
+		"type": "error",
+		"name": "UnAuthenticated",
+		"inputs": []
+	},
+	{
+		"type": "error",
+		"name": "ZeroAddLiquidityAmount",
+		"inputs": []
+	},
+	{
+		"type": "error",
+		"name": "ZeroLiquiditySupply",
+		"inputs": []
+	}
+]
